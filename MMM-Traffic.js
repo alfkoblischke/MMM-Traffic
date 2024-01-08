@@ -84,7 +84,7 @@ Module.register("MMM-Traffic", {
 
      // Duration
     var duration = document.createElement("td");
-    duration.innerHTML = this.myTravelDuration + " " + myTravelDurationTraffic;
+    duration.innerHTML = this.myTravelDuration + " " + this.myTravelDurationTraffic;
     row.appendChild(duration);
    
     wrapper.appendChild(row);    
