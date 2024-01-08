@@ -33,6 +33,7 @@ Module.register("MMM-Traffic", {
       }
       else {
         Log.error(`Fehler beim Abrufen der Daten von Pegel API.`);
+      }
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
     }    
