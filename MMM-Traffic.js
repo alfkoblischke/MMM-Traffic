@@ -24,13 +24,12 @@ Module.register("MMM-Traffic", {
     try {
       const response = await fetch(this.url);
       const data = await response.json();                  
-      if(data["statusDescription"] = "OK") {        
-        console.log(data.resourceSets[0]["resources"][0].routeLegs[0]["startLocation"]["address"].formattedAddress);        
+      if(data["statusDescription"] = "OK") {               
         this.myStart = data.resourceSets[0]["resources"][0].routeLegs[0]["startLocation"]["address"].formattedAddress;        
         this.myDestination = data.resourceSets[0]["resources"][0].routeLegs[0]["endLocation"]["address"].formattedAddress;          
         this.myDistance = data.resourceSets[0]["resources"][0]["travelDistance"];
         this.myDistanceUnit = data.resourceSets[0]["resources"][0]["distanceUnit"];
-        this.myTravelDuration = data.resourceSets[0]["resources"][0]["travelDuration"];
+        this.myTravelDuration = data.resourceSets[0]["resources"][0]["travelDuration"] / 60 + " Min.";
         this.myTravelDurationTraffic = data.resourceSets[0]["resources"][0]["travelDurationTraffic"];                
         this.loaded = true;
         this.updateDom();
