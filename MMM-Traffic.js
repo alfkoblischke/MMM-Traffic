@@ -29,10 +29,10 @@ Module.register("MMM-Traffic", {
         //alert(data.resourceSets["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         //alert(data["resourceSets"]["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         // this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
-        // this.myDistance = data["resourceSets"]["resources"]["travelDistance"];
-        // this.myDistanceUnit = data["resourceSets"]["resources"]["distanceUnit"];
-        // this.myTravelDuration = data["resourceSets"]["resources"]["travelDuration"];
-        // this.myTravelDurationTraffic = data["resourceSets"]["resources"]["travelDurationTraffic"];                
+        this.myDistance = data.resourceSets[0]["resources"][0]["travelDistance"];
+        this.myDistanceUnit = data.resourceSets[0]["resources"][0]["distanceUnit"];
+        this.myTravelDuration = data.resourceSets[0]["resources"][0]["travelDuration"];
+        this.myTravelDurationTraffic = data.resourceSets[0]["resources"][0]["travelDurationTraffic"];                
         this.loaded = true;
         this.updateDom();
       }
