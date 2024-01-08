@@ -1,9 +1,9 @@
 Module.register("MMM-Traffic", {
   defaults: {    
     updateInterval: 600000,
-    ApiKey: {
-      "a6ee8177-107b-47dd-bcfd-30960ccc6e9c": "Köln"      
-    },    
+    apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    start: "Domkloster 4 50667 Koeln, Germany",
+    destination: "Champ de Mars, 5 Avenue Anatole, Paris, France",
   },
 
   getStyles: function () {
@@ -13,7 +13,7 @@ Module.register("MMM-Traffic", {
   // Override start method
   start: function () {
     this.loaded = false;    
-    this.url = `https://pegelonline.wsv.de/webservices/rest-api/v2/stations/${Object.keys(this.config.pegelName)}/W/measurements.json`;  
+    this.url = `http://dev.virtualearth.net/REST/v1/Routes?wayPoint.1=${Object.keys(this.config.start)}&wayPoint.2=${Object.keys(this.config.destination)}&key=${Object.keys(this.config.apiKey)}`;  
     this.getData();
     setInterval(() => {
       this.getData();      
@@ -24,21 +24,12 @@ Module.register("MMM-Traffic", {
     try {
       const response = await fetch(this.url);
       const data = await response.json();            
+      console.log(data);
       this.letzterPegel1 = data[data.length-1]['value'];     
       this.loaded = true;
       this.updateDom();
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
-    }
-    try {
-      const stationResponse = await fetch(this.stationurl);
-      const data = await stationResponse.json();            
-      this.stationName = data['longname'];
-      this.stationName = this.stationName.toLowerCase();      
-      this.loaded = true;
-      this.updateDom();
-    } catch (error) {
-      Log.error(`Fehler beim Abrufen der Daten von Bing API: ${error}`);
     }    
   },
   
