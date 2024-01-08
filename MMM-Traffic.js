@@ -27,11 +27,11 @@ Module.register("MMM-Traffic", {
       console.log(data);
       if(data["statusDescription"] = "OK") {
         this.myStart = data["resourceSets"]["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"];
-        this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
-        this.myDistance = data["resourceSets"]["resources"]["travelDistance"];
-        this.myDistanceUnit = data["resourceSets"]["resources"]["distanceUnit"];
-        this.myTravelDuration = data["resourceSets"]["resources"]["travelDuration"];
-        this.myTravelDurationTraffic = data["resourceSets"]["resources"]["travelDurationTraffic"];                
+        // this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
+        // this.myDistance = data["resourceSets"]["resources"]["travelDistance"];
+        // this.myDistanceUnit = data["resourceSets"]["resources"]["distanceUnit"];
+        // this.myTravelDuration = data["resourceSets"]["resources"]["travelDuration"];
+        // this.myTravelDurationTraffic = data["resourceSets"]["resources"]["travelDurationTraffic"];                
         this.loaded = true;
         this.updateDom();
       }
