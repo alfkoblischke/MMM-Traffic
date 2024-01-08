@@ -23,11 +23,9 @@ Module.register("MMM-Traffic", {
   getData: async function () {
     try {
       const response = await fetch(this.url);
-      const data = await response.json();            
-      console.log(data);
-      if(data["statusDescription"] = "OK") {
-        myData = JSON.parse(data);
-        console.log(myData);
+      const data = await response.json();                  
+      if(data["statusDescription"] = "OK") {        
+        console.log(Data.resourceSets);
         //alert(data.resourceSets["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         //alert(data["resourceSets"]["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         // this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
