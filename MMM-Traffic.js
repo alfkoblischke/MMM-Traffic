@@ -26,14 +26,12 @@ Module.register("MMM-Traffic", {
       const data = await response.json();            
       console.log(data);
       if(data["statusDescription"] = "OK") {
-        this.myStart = data["resourceSets"]["resources"]["routeLegs"];
+        this.myStart = data["resourceSets"]["resources"]["routeLegs"]["startLocation]["address"]["formattedAddress"];
         this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
         this.myDistance = data["resourceSets"]["resources"]["travelDistance"];
         this.myDistanceUnit = data["resourceSets"]["resources"]["distanceUnit"];
         this.myTravelDuration = data["resourceSets"]["resources"]["travelDuration"];
-        this.myTravelDurationTraffic = data["resourceSets"]["resources"]["travelDurationTraffic"];
-        
-        this.letzterPegel1 = data[data.length-1]['value'];     
+        this.myTravelDurationTraffic = data["resourceSets"]["resources"]["travelDurationTraffic"];                
         this.loaded = true;
         this.updateDom();
       }
@@ -61,51 +59,43 @@ Module.register("MMM-Traffic", {
 
     // Header Row
     var headerRow = document.createElement("tr");
-    var stationNameHeader = document.createElement("th");
-    stationNameHeader.innerHTML = "Ort";
-    headerRow.appendChild(stationNameHeader);
-    var waterNameHeader = document.createElement("th");
-    waterNameHeader.innerHTML = "Fluss";
-    headerRow.appendChild(waterNameHeader);
-    var kmHeader = document.createElement("th");
-    kmHeader.innerHTML = "Km";
-    headerRow.appendChild(kmHeader);
-    var timeHeader = document.createElement("th");
-    timeHeader.innerHTML = "Uhrzeit";
-    headerRow.appendChild(timeHeader);
-    var pegelHeader = document.createElement("th");
-    pegelHeader.innerHTML = "Pegel";
-    headerRow.appendChild(pegelHeader);
+    var startAddressHeader = document.createElement("th");
+    startAddressHeader.innerHTML = "Start";
+    headerRow.appendChild(startAddressHeader);
+    var destinationAddressHeader = document.createElement("th");
+    destinationAddressHeader.innerHTML = "Ziel";
+    headerRow.appendChild(destinationAddressHeader);
+    var distanceHeader = document.createElement("th");
+    distanceHeader.innerHTML = "Km";
+    headerRow.appendChild(distanceHeader);
+    var durationHeader = document.createElement("th");
+    durationHeader.innerHTML = "Fahrzeit";
+    headerRow.appendChild(durationHeader);    
     wrapper.appendChild(headerRow);
 
-    // 1 Data Row
+    // Data Row
     var row = document.createElement("tr");
 
-    // Pegel Name
-    var pegelName = document.createElement("td");
-    pegelName.innerHTML = this.stationName;
-    row.appendChild(pegelName);
+    // Start Address
+    var startAddress = document.createElement("td");
+    startAddress.innerHTML = this.myStart;
+    row.appendChild(startAddress);
 
-    // Water Name
-    var waterName = document.createElement("td");
-    waterName.innerHTML = this.stationWater;    
-    row.appendChild(waterName);
-
-     // Pegel Km
-    var pegelKm = document.createElement("td");
-    pegelKm.innerHTML = this.stationKm;
-    row.appendChild(pegelKm);
-
-    // Pegel Time
-    var pegelTime = document.createElement("td");
-    pegelTime.innerHTML = this.letzterPegelTime1;
-    row.appendChild(pegelTime);
+    // Destination Address
+    var destinationAddress = document.createElement("td");
+    destinationAddress.innerHTML = this.myDestination;
+    row.appendChild(destinationAddress);
     
-    // Pegel Height
-    var pegelHeight = document.createElement("td");
-    pegelHeight.innerHTML = this.letzterPegel1 + " cm";
-    row.appendChild(pegelHeight);
+    // Distance
+    var distance = document.createElement("td");
+    distance.innerHTML = this.myDistance + " " + this.myDistanceUnit;    
+    row.appendChild(distance);
 
+     // Duration
+    var duration = document.createElement("td");
+    duration.innerHTML = this.myTravelDuration;
+    row.appendChild(duration);
+   
     wrapper.appendChild(row);    
     return wrapper;
   }
