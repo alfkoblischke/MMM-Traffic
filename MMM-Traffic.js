@@ -26,7 +26,13 @@ Module.register("MMM-Traffic", {
       const data = await response.json();            
       console.log(data);
       if(data["statusDescription"] = "OK") {
-        alert("hurra");
+        this.myStart = data["resourceSets"]["resources"]["routeLegs"];
+        this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
+        this.myDistance = data["resourceSets"]["resources"]["travelDistance"];
+        this.myDistanceUnit = data["resourceSets"]["resources"]["distanceUnit"];
+        this.myTravelDuration = data["resourceSets"]["resources"]["travelDuration"];
+        this.myTravelDurationTraffic = data["resourceSets"]["resources"]["travelDurationTraffic"];
+        
         this.letzterPegel1 = data[data.length-1]['value'];     
         this.loaded = true;
         this.updateDom();
