@@ -43,7 +43,7 @@ Module.register("MMM-Traffic", {
   },
   
   getHeader: function () {
-    return "Meine Strecke";
+    return "Meine Strecke von: " + this.myStart;
   },
 
   getDom: function () {
