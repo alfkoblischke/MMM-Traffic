@@ -13,7 +13,7 @@ Module.register("MMM-Traffic", {
   // Override start method
   start: function () {
     config.log(this.config.start);
-    config.log(${Object.keys(this.config.destination)});
+    config.log(this.config.destination);
     this.loaded = false;    
     this.url = `http://dev.virtualearth.net/REST/v1/Routes?wayPoint.1=${Object.keys(this.config.start)}&wayPoint.2=${Object.keys(this.config.destination)}&key=${Object.keys(this.config.apiKey)}`;  
     this.getData();
