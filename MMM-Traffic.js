@@ -25,9 +25,14 @@ Module.register("MMM-Traffic", {
       const response = await fetch(this.url);
       const data = await response.json();            
       console.log(data);
-      this.letzterPegel1 = data[data.length-1]['value'];     
-      this.loaded = true;
-      this.updateDom();
+      if(data.ok) {
+        alert("hurra");
+        this.letzterPegel1 = data[data.length-1]['value'];     
+        this.loaded = true;
+        this.updateDom();
+      }
+      else {
+        Log.error(`Fehler beim Abrufen der Daten von Pegel API.`);
     } catch (error) {
       Log.error(`Fehler beim Abrufen der Daten von Pegel API: ${error}`);
     }    
