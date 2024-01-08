@@ -25,7 +25,7 @@ Module.register("MMM-Traffic", {
       const response = await fetch(this.url);
       const data = await response.json();                  
       if(data["statusDescription"] = "OK") {        
-        console.log(data.resourceSets[0]["resources"][0]);
+        console.log(data.resourceSets[0]["resources"][0].routeLegs);
         //alert(data.resourceSets["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         //alert(data["resourceSets"]["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         //this.myDestination = data.resourceSets[0]["resources"][0]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
