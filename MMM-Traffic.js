@@ -27,7 +27,7 @@ Module.register("MMM-Traffic", {
       if(data["statusDescription"] = "OK") {               
         this.myStart = data.resourceSets[0]["resources"][0].routeLegs[0]["startLocation"]["address"].formattedAddress;        
         this.myDestination = data.resourceSets[0]["resources"][0].routeLegs[0]["endLocation"]["address"].formattedAddress;          
-        this.myDistance = data.resourceSets[0]["resources"][0]["travelDistance"];
+        this.myDistance = Math.round(data.resourceSets[0]["resources"][0]["travelDistance"]);
         this.myDistanceUnit = data.resourceSets[0]["resources"][0]["distanceUnit"];
         this.myTravelDuration = Math.floor(data.resourceSets[0]["resources"][0]["travelDuration"] /60 ) + " Min.";
         this.myTravelDurationTraffic = Math.floor(data.resourceSets[0]["resources"][0]["travelDurationTraffic"] / 60) + " Min.";                
