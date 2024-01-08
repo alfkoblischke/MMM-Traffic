@@ -28,7 +28,7 @@ Module.register("MMM-Traffic", {
         console.log(data.resourceSets[0]["resources"][0].travelDuration);
         //alert(data.resourceSets["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         //alert(data["resourceSets"]["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
-        // this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
+        this.myDestination = ddata.resourceSets[0]["resources"][0]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
         this.myDistance = data.resourceSets[0]["resources"][0]["travelDistance"];
         this.myDistanceUnit = data.resourceSets[0]["resources"][0]["distanceUnit"];
         this.myTravelDuration = data.resourceSets[0]["resources"][0]["travelDuration"];
