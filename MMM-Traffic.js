@@ -26,7 +26,7 @@ Module.register("MMM-Traffic", {
       const data = await response.json();            
       console.log(data);
       if(data["statusDescription"] = "OK") {
-        alert(data.resourceSets);
+        alert(data.resourceSets.resources.routeLegs.startLocation.address.formattedAddress);
         //alert(data["resourceSets"]["resources"]["routeLegs"]["startLocation"]["address"]["formattedAddress"]);
         // this.myDestination = data["resourceSets"]["resources"]["routeLegs"]["endLocation"]["address"]["formattedAddress"];
         // this.myDistance = data["resourceSets"]["resources"]["travelDistance"];
