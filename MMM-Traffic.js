@@ -57,10 +57,7 @@ Module.register("MMM-Traffic", {
     }
 
     // Header Row
-    var headerRow = document.createElement("tr");
-    var startAddressHeader = document.createElement("th");
-    startAddressHeader.innerHTML = "Start";
-    headerRow.appendChild(startAddressHeader);
+    var headerRow = document.createElement("tr"); 
     var destinationAddressHeader = document.createElement("th");
     destinationAddressHeader.innerHTML = "Ziel";
     headerRow.appendChild(destinationAddressHeader);
@@ -74,12 +71,7 @@ Module.register("MMM-Traffic", {
 
     // Data Row
     var row = document.createElement("tr");
-
-    // Start Address
-    var startAddress = document.createElement("td");
-    startAddress.innerHTML = this.myStart;
-    row.appendChild(startAddress);
-
+    
     // Destination Address
     var destinationAddress = document.createElement("td");
     destinationAddress.innerHTML = this.myDestination;
