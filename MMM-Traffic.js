@@ -11,11 +11,9 @@ Module.register("MMM-Traffic", {
   },  
 
   // Override start method
-  start: function () {
-    config.log(this.config.start);
-    config.log(this.config.destination);
+  start: function () {   
     this.loaded = false;    
-    this.url = `http://dev.virtualearth.net/REST/v1/Routes?wayPoint.1=${Object.keys(this.config.start)}&wayPoint.2=${Object.keys(this.config.destination)}&key=${Object.keys(this.config.apiKey)}`;  
+    this.url = `http://dev.virtualearth.net/REST/v1/Routes?wayPoint.1=${this.config.start}&wayPoint.2=${this.config.destination}&key=${this.config.apiKey}`;  
     this.getData();
     setInterval(() => {
       this.getData();      
