@@ -7,7 +7,7 @@ Module.register("MMM-Traffic", {
   },
 
   getStyles: function () {
-    return ["style.css"];
+    return ["traffic.css"];
   },  
 
   // Override start method
