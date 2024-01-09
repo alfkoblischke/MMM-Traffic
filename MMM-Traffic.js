@@ -30,7 +30,7 @@ Module.register("MMM-Traffic", {
         this.myDistance = Math.round(data.resourceSets[0]["resources"][0]["travelDistance"]);
         this.myDistanceUnit = data.resourceSets[0]["resources"][0]["distanceUnit"];
         this.myTravelDuration = Math.floor(data.resourceSets[0]["resources"][0]["travelDuration"] /60 ) + " / ";
-        this.myTravelDurationTraffic = Math.floor(data.resourceSets[0]["resources"][0]["travelDurationTraffic"] / 60) + " Min.";                
+        this.myTravelDurationTraffic = Math.floor(data.resourceSets[0]["resources"][0]["travelDurationTraffic"] / 60);                
         this.loaded = true;
         this.updateDom();
       }
@@ -62,10 +62,10 @@ Module.register("MMM-Traffic", {
     destinationAddressHeader.innerHTML = "Ziel";
     headerRow.appendChild(destinationAddressHeader);
     var distanceHeader = document.createElement("th");
-    distanceHeader.innerHTML = "Km";
+    distanceHeader.innerHTML = this.myDistanceUnit;
     headerRow.appendChild(distanceHeader);
     var durationHeader = document.createElement("th");
-    durationHeader.innerHTML = "Fahrzeit";
+    durationHeader.innerHTML = "Minuten";
     headerRow.appendChild(durationHeader);    
     wrapper.appendChild(headerRow);
 
