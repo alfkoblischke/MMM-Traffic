@@ -60,12 +60,15 @@ Module.register("MMM-Traffic", {
     var headerRow = document.createElement("tr"); 
     var destinationAddressHeader = document.createElement("th");
     destinationAddressHeader.innerHTML = "Ziel";
+    destinationAddressHeader.setAttribute('class', 'target');
     headerRow.appendChild(destinationAddressHeader);
     var distanceHeader = document.createElement("th");
     distanceHeader.innerHTML = this.myDistanceUnit;
+    distanceHeader.setAttribute('class', 'distance');
     headerRow.appendChild(distanceHeader);
     var durationHeader = document.createElement("th");
     durationHeader.innerHTML = "Minuten";
+    durationHeader.setAttribute('class', 'duration');
     headerRow.appendChild(durationHeader);    
     wrapper.appendChild(headerRow);
 
@@ -75,17 +78,20 @@ Module.register("MMM-Traffic", {
     // Destination Address
     var destinationAddress = document.createElement("td");
     destinationAddress.innerHTML = this.myDestination;
+    destinationAddress.setAttribute('class', 'target');
     row.appendChild(destinationAddress);
     
     // Distance
     var distance = document.createElement("td");
-    distance.innerHTML = this.myDistance;    
+    distance.innerHTML = this.myDistance;   
+    distance.setAttribute('class', 'distance');
     row.appendChild(distance);
 
      // Duration
     var duration = document.createElement("td");
     duration.innerHTML = this.myTravelDuration !== this.myTravelDurationTraffic ? this.myTravelDuration + " " + this.myTravelDurationTraffic : this.myTravelDurationTraffic;     
     duration.style.color = this.myTravelDuration >= this.myTravelDurationTraffic ? "green" : "red";     
+    duration.setAttribute('class', 'duration');
     row.appendChild(duration);
    
     wrapper.appendChild(row);    
