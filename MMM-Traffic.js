@@ -79,7 +79,7 @@ Module.register("MMM-Traffic", {
     
     // Distance
     var distance = document.createElement("td");
-    distance.innerHTML = this.myDistance + " " + this.myDistanceUnit;    
+    distance.innerHTML = this.myDistance;    
     row.appendChild(distance);
 
      // Duration
