@@ -9,3 +9,15 @@
   padding-right: 5px;
   text-align: left;
 }
+
+.target {
+  width: 60%;
+}
+
+.distance {
+  width: 20%;
+}
+
+.duration {
+  width: 20%;
+}
