@@ -1,1 +1,22 @@
+/* TrafficAPI MagicMirror² CSS */
+.traffic-table {
+  border-collapse: collapse;
+}
 
+.traffic-table th,
+.traffic-table td {
+  padding-left: 5px;
+  padding-right: 5px;  
+}
+
+.target {
+  width: 60%;
+}
+
+.distance {
+  width: 20%;
+}
+
+.duration {
+  width: 20%;
+}
